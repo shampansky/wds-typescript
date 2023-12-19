@@ -100,9 +100,19 @@ function printName2(name: string): void {
 
 // Optional parameters
 
-function printData(name: string, options?: { debugMode: boolean }) {
+type Options = {
+  debugMode?: boolean;
+  indentLevel?: number;
+};
+
+function printData(
+  name: string,
+  { debugMode = true, indentLevel }: Options = {}
+) {
   console.log(name);
-  if (options) {
-    console.log(options.debugMode);
-  }
+  console.log(debugMode, indentLevel);
+}
+
+function sumNumbers(...args: number[]) {
+  return args.reduce((total, current) => total + current, 0);
 }
