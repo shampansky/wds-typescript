@@ -116,3 +116,15 @@ function printData(
 function sumNumbers(...args: number[]) {
   return args.reduce((total, current) => total + current, 0);
 }
+
+// Typing variables as functions
+
+type cbFunc = (num: number) => void;
+
+function sumWithCallback(a: number, b: number, cb: cbFunc) {
+  cb(a + b);
+}
+
+sumWithCallback(1, 2, (num: number) => {
+  console.log(num);
+});
