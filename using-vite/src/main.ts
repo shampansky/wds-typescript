@@ -91,3 +91,18 @@ function printPerson(person: { name: string }) {
 const person3 = { name: 'Victoria', age: 30 };
 
 printPerson({ name: 'Victoria' });
+
+// Void type
+
+function printName2(name: string): void {
+  console.log(name);
+}
+
+// Optional parameters
+
+function printData(name: string, options?: { debugMode: boolean }) {
+  console.log(name);
+  if (options) {
+    console.log(options.debugMode);
+  }
+}
