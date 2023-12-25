@@ -172,3 +172,11 @@ const personTwo: ComplexPerson = {
   age: 4,
   id: '231121',
 };
+
+// Readonly
+type NumberArray = readonly number[];
+
+const nums: NumberArray = [1, 2, 3];
+
+// can't modify an array
+// nums.push(4)
