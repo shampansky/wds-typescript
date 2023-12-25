@@ -128,3 +128,14 @@ function sumWithCallback(a: number, b: number, cb: cbFunc) {
 sumWithCallback(1, 2, (num: number) => {
   console.log(num);
 });
+
+// Union types
+type Todo = {
+  name: string;
+  status: 'Complete' | 'Incomplete' | 'Draft';
+};
+
+const todo: Todo = {
+  name: 'Laundry',
+  status: 'Complete',
+};
