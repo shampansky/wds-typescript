@@ -180,3 +180,16 @@ const nums: NumberArray = [1, 2, 3];
 
 // can't modify an array
 // nums.push(4)
+
+// keyof
+
+type Fruit = {
+  name: string;
+  price: number;
+};
+
+function getValueByKey(key: keyof Fruit, obj: Fruit) {
+  return obj[key];
+}
+
+getValueByKey('name', { name: 'apple', price: 30 });
