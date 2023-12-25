@@ -193,3 +193,15 @@ function getValueByKey(key: keyof Fruit, obj: Fruit) {
 }
 
 getValueByKey('name', { name: 'apple', price: 30 });
+
+// typeof
+
+const product = { name: 'coat', price: 300 };
+const productList: (typeof product)[] = [{ name: 'jeans', price: 24 }];
+productList.push({ name: 'shirt', price: 10 });
+
+function sayHi(message: string) {
+  console.log(message);
+}
+
+type GreetFunction = typeof sayHi;
