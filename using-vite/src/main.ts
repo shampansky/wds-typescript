@@ -139,3 +139,36 @@ const todo: Todo = {
   name: 'Laundry',
   status: 'Complete',
 };
+
+// Intersections
+
+type Person3 = {
+  name: string;
+  age: number;
+};
+
+type PersonWithId = Person3 & { id: string };
+
+const newPerson: PersonWithId = {
+  name: 'Peter',
+  age: 10,
+  id: 'one',
+};
+
+interface PersonWithName {
+  name: string;
+}
+
+interface PersonWithAge {
+  age: number;
+}
+
+interface ComplexPerson extends PersonWithName, PersonWithAge {
+  id: string;
+}
+
+const personTwo: ComplexPerson = {
+  name: 'Ivan',
+  age: 4,
+  id: '231121',
+};
