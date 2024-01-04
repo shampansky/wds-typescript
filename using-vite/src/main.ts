@@ -205,3 +205,35 @@ function sayHi(message: string) {
 }
 
 type GreetFunction = typeof sayHi;
+
+// Index Types
+
+type Player = {
+  name: string;
+  skillLevel: 'Beginner' | 'Intermediate' | 'Expert';
+};
+
+type PeopleGroupedBySkillLevel = {
+  [index in Player['skillLevel']]?: Player[];
+};
+
+const player1: Player = {
+  name: 'John',
+  skillLevel: 'Intermediate',
+};
+
+function printSkillLevel(skillLevel: Player['skillLevel']) {
+  console.log(skillLevel);
+}
+
+const players: PeopleGroupedBySkillLevel = {
+  Beginner: [{ name: 'ted', skillLevel: 'Expert' }],
+};
+
+const a1 = {
+  name: 'Ivan',
+  age: 4,
+  isProgrammer: false,
+};
+
+type A = (typeof a1)[keyof typeof a1]; // sting | number | boolean
