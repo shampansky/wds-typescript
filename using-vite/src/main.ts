@@ -237,3 +237,19 @@ const a1 = {
 };
 
 type A = (typeof a1)[keyof typeof a1]; // sting | number | boolean
+
+// as const
+
+const numbersArray = ['1', '2', '3'] as const; // readonly
+
+const firstItem = numbersArray[0]; // '1'
+
+const SKILL_LEVELS = ['Beginner', 'Intermediate', 'Expert'] as const;
+
+type Player2 = {
+  skillLevel: (typeof SKILL_LEVELS)[number];
+};
+
+SKILL_LEVELS.forEach((skillLevel) => {
+  console.log(skillLevel);
+});
