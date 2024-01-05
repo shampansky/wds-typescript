@@ -253,3 +253,9 @@ type Player2 = {
 SKILL_LEVELS.forEach((skillLevel) => {
   console.log(skillLevel);
 });
+
+// tuple
+
+type Tuple = [string, boolean];
+
+const tupleItem: Tuple = ['one', true];
