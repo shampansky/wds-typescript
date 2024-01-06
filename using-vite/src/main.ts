@@ -259,3 +259,68 @@ SKILL_LEVELS.forEach((skillLevel) => {
 type Tuple = [string, boolean];
 
 const tupleItem: Tuple = ['one', true];
+
+// Generics
+
+const input = document.querySelector<HTMLInputElement>('.input');
+
+console.log(input?.value);
+
+function getSecond<ArrayType>(array: ArrayType[]) {
+  return array[1];
+}
+
+const testArray1 = [1, 2, 3];
+const testArray2 = ['one', 'two', 'three'];
+
+const secondItem1 = getSecond<number>(testArray1);
+const secondItem2 = getSecond(testArray2);
+
+const typedSet = new Set<string>();
+typedSet.add('one');
+
+const typedMap = new Map<string, number>();
+typedMap.set('one', 1);
+
+type APIResponse<TData extends object = { status: number }> = {
+  data: TData;
+  isError: boolean;
+};
+
+type UserResponse = APIResponse<{ name: string; age: number }>;
+type BlogResponse = APIResponse<{ title: string }>;
+
+const userResponse: UserResponse = {
+  data: {
+    name: 'Anna',
+    age: 30,
+  },
+  isError: false,
+};
+
+const blogResponse: BlogResponse = {
+  data: {
+    title: 'New Year Post',
+  },
+  isError: false,
+};
+
+function aToO<T>(array: [string, T][]) {
+  const obj: {
+    [index: string]: T;
+  } = {};
+
+  array.forEach(([key, value]) => {
+    obj[key] = value;
+  });
+
+  return obj;
+}
+
+const arrayToConvert: [string, number | boolean][] = [
+  ['one', 1],
+  ['two', 2],
+  ['tree', true],
+];
+
+const convertedToObject = aToO(arrayToConvert);
