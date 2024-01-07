@@ -324,3 +324,15 @@ const arrayToConvert: [string, number | boolean][] = [
 ];
 
 const convertedToObject = aToO(arrayToConvert);
+
+// async functions
+
+function wait(duration: number): Promise<string> {
+  return new Promise<string>((resolve) => {
+    setTimeout(() => resolve('hi'), duration);
+  });
+}
+
+wait(1000).then((value) => {
+  console.log(value.length);
+});
