@@ -376,3 +376,13 @@ const formTodo: FormTodo = {
   id: 'fdf2',
   status: 'draft',
 };
+
+// ReturnType and Parameters
+
+function checkLength(a: string, b: number) {
+  return a.length > b;
+}
+
+type ReturnOfLengthCheck = ReturnType<typeof checkLength>;
+
+type FunctionParams = Parameters<typeof checkLength>;
