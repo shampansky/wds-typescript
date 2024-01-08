@@ -336,3 +336,25 @@ function wait(duration: number): Promise<string> {
 wait(1000).then((value) => {
   console.log(value.length);
 });
+
+// Pick and Omit
+
+type Todo1 = {
+  id: string;
+  name: string;
+  status: string;
+  completed: boolean;
+};
+
+// type NewTodo1 = Pick<Todo1, 'name' | 'status' | 'completed'>; // use these keys
+type NewTodo1 = Omit<Todo1, 'id'>; // exclude these keys
+
+function saveTodo(todo: NewTodo1) {
+  return { ...todo, id: crypto.randomUUID() };
+}
+
+function renderTodo(todo: Todo1) {
+  const div = document.createElement('div');
+  div.id = todo.id;
+  // do the rest
+}
