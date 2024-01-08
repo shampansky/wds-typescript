@@ -358,3 +358,21 @@ function renderTodo(todo: Todo1) {
   div.id = todo.id;
   // do the rest
 }
+
+// Partial and Required
+
+type PartialTodo = Partial<Todo1>;
+type RequiredTodo = Required<Todo1>;
+
+// type FormTodo = Partial<Pick<Todo1, 'name'>> & Omit<Todo1, 'name'>;
+
+type RequiredPick<T, Key extends keyof T> = Required<Pick<T, Key>> & T;
+type PartialPick<T, Key extends keyof T> = Partial<Pick<T, Key>> & Omit<T, Key>;
+
+type FormTodo = PartialPick<Todo1, 'name'>;
+
+const formTodo: FormTodo = {
+  completed: false,
+  id: 'fdf2',
+  status: 'draft',
+};
