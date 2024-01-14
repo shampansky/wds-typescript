@@ -386,3 +386,16 @@ function checkLength(a: string, b: number) {
 type ReturnOfLengthCheck = ReturnType<typeof checkLength>;
 
 type FunctionParams = Parameters<typeof checkLength>;
+
+// Record
+
+type Person4 = {
+  name: string;
+  age: number;
+};
+
+// type PeopleGroupedByName = {
+//   [index: string]: Person[];
+// };
+
+type PeopleGroupedByName = Record<string, Person[]>;
