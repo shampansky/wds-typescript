@@ -399,3 +399,19 @@ type Person4 = {
 // };
 
 type PeopleGroupedByName = Record<string, Person[]>;
+
+// Readonly
+
+type Todo2 = {
+  title: string;
+  completed: true;
+};
+
+const completedItem = {
+  title: 'task1',
+  completed: false,
+} as const;
+
+type TodoRO = typeof completedItem;
+
+type FinalTodo = Readonly<Todo2>;
