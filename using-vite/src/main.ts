@@ -423,3 +423,39 @@ async function doSomething() {
 }
 
 type AsyncValue = Awaited<ReturnType<typeof doSomething>>; // number
+
+// Type guards
+
+type Todo3 = {
+  title: string;
+  priority: 'High' | 'Normal' | 'Low';
+  isComplete: boolean;
+  description?: string;
+  dueDate: Date | string | number;
+};
+
+function extendTodo(todo: Todo3) {
+  if (typeof todo.dueDate === 'string') {
+    console.log(todo.dueDate);
+  } else if (todo.dueDate instanceof Date) {
+    console.log(todo.dueDate);
+  } else {
+    console.log(todo.dueDate);
+  }
+
+  if (todo.description !== undefined) {
+    todo.description.length;
+  }
+  todo.description?.length;
+
+  switch (todo.priority) {
+    case 'High':
+      console.log(todo.priority);
+      break;
+    case 'Normal':
+      console.log(todo.priority);
+  }
+}
+
+const form1 = document.querySelector<HTMLFormElement>('.form');
+form1!.addEventListener('submit', () => {}); // ! - means always exists
