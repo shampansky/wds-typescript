@@ -428,7 +428,7 @@ type AsyncValue = Awaited<ReturnType<typeof doSomething>>; // number
 
 type Todo3 = {
   title: string;
-  priority: 'High' | 'Normal' | 'Low';
+  priority: 'High' | 'Normal' | 'Low' | 'Very Low';
   isComplete: boolean;
   description?: string;
   dueDate: Date | string | number;
@@ -454,6 +454,16 @@ function extendTodo(todo: Todo3) {
       break;
     case 'Normal':
       console.log(todo.priority);
+      break;
+    case 'Low':
+      console.log(todo.priority);
+      break;
+    case 'Very Low':
+      console.log(todo.priority);
+      break;
+    default:
+      const exhaustiveCheck: never = todo.priority;
+      return exhaustiveCheck;
   }
 }
 
