@@ -415,3 +415,11 @@ const completedItem = {
 type TodoRO = typeof completedItem;
 
 type FinalTodo = Readonly<Todo2>;
+
+// Awaited
+
+async function doSomething() {
+  return 3;
+}
+
+type AsyncValue = Awaited<ReturnType<typeof doSomething>>; // number
