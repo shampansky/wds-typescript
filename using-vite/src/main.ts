@@ -477,3 +477,12 @@ function func(data: unknown) {
     return data.name;
   }
 }
+
+// As casting
+
+fetch('path')
+  .then((res) => res.json())
+  .then((data) => {
+    return data as Todo;
+  })
+  .then((data) => console.log(data));
