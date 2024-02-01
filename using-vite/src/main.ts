@@ -502,3 +502,28 @@ const todo1 = {
 } satisfies Todo4;
 
 todo1.dueDate.setDate(4);
+
+// Discriminated union
+
+type SuccessUserApiResponse = {
+  status: 'Success';
+  data: {
+    name: string;
+    id: string;
+  };
+};
+
+type ErrorUserApiResponse = {
+  status: 'Error';
+  errorMessage: string;
+};
+
+type UserApiResponse = SuccessUserApiResponse | ErrorUserApiResponse;
+
+function handleResponse(res: UserApiResponse) {
+  if (res.status === 'Success') {
+    console.log(res.data.name);
+  } else {
+    console.log(res.errorMessage.length);
+  }
+}
