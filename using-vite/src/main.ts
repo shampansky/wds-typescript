@@ -469,3 +469,11 @@ function extendTodo(todo: Todo3) {
 
 const form1 = document.querySelector<HTMLFormElement>('.form');
 form1!.addEventListener('submit', () => {}); // ! - means always exists
+
+// Unknown type
+
+function func(data: unknown) {
+  if (data != null && typeof data === 'object' && 'name' in data) {
+    return data.name;
+  }
+}
