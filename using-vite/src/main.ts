@@ -486,3 +486,19 @@ fetch('path')
     return data as Todo;
   })
   .then((data) => console.log(data));
+
+// satisfies
+
+type Todo4 = {
+  type: string;
+  dueDate: string | Date;
+  isCompleted: boolean;
+};
+
+const todo1 = {
+  type: 'buy bread',
+  dueDate: new Date(),
+  isCompleted: false,
+} satisfies Todo4;
+
+todo1.dueDate.setDate(4);
