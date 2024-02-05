@@ -527,3 +527,18 @@ function handleResponse(res: UserApiResponse) {
     console.log(res.errorMessage.length);
   }
 }
+
+// Function overloads
+function sum12(numbers: number[]): number;
+function sum12(a: number, b: number): number;
+function sum12(first: number | number[], second?: number) {
+  if (Array.isArray(first)) {
+    return first.reduce((total, num) => total + num, 0);
+  }
+  if (second !== undefined) {
+    return first + second;
+  }
+}
+
+sum12(2, 3);
+sum12([3, 4]);
