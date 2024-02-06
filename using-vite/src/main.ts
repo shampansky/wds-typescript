@@ -563,3 +563,11 @@ function func123(todo: Todo13) {
 function isDescription(description: string): description is Priority {
   return PRIORITIES.includes(description as Priority);
 }
+
+// debugging
+
+// @ts-ignore: ignores typescript error
+func123('test');
+
+// @ts-expect-error: description of the error
+func123('test2');
