@@ -542,3 +542,24 @@ function sum12(first: number | number[], second?: number) {
 
 sum12(2, 3);
 sum12([3, 4]);
+
+// Type predicate function
+
+const PRIORITIES = ['High', 'Medium', 'Low'] as const;
+type Priority = (typeof PRIORITIES)[number];
+type Todo13 = {
+  title: string;
+  description: string;
+};
+
+function func123(todo: Todo13) {
+  if (isDescription(todo.description)) {
+    todo.description;
+  } else {
+    todo.description;
+  }
+}
+
+function isDescription(description: string): description is Priority {
+  return PRIORITIES.includes(description as Priority);
+}
